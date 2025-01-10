@@ -5,6 +5,7 @@ import "../../styles/Terminal.css";
 const Terminal = ({ changeActiveTab, onCommandSubmit }) => {
   const [input, setInput] = useState("");
   const [commandHistory, setCommandHistory] = useState([]);
+  const [isOpen, setIsOpen] = useState(true); // State to control terminal visibility
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -21,14 +22,17 @@ const Terminal = ({ changeActiveTab, onCommandSubmit }) => {
     }
   };
 
-  return (
+  const toggleTerminal = () => {
+    setIsOpen((prev) => !prev); // Toggle terminal visibility
+  };
+
+  return isOpen ? (
     <div className="terminal">
       {/* Terminal Header */}
       <header className="terminal-header">
         <div className="macos-buttons">
-          <span className="button red"></span>
-          <span className="button yellow"></span>
-          <span className="button green"></span>
+          <span className="button red" onClick={() => setIsOpen(false)}></span>
+          <span className="button green" onClick={() => setIsOpen(true)}></span>
         </div>
         <h3 className="terminal-header-text">muano@portfolio-desktop:~</h3>
       </header>
@@ -45,6 +49,7 @@ const Terminal = ({ changeActiveTab, onCommandSubmit }) => {
           <input
             className="terminal-input"
             type="text"
+            placeholder="enter the tab you want to view..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -52,6 +57,16 @@ const Terminal = ({ changeActiveTab, onCommandSubmit }) => {
           />
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="terminal-header minimized">
+      <div className="macos-buttons">
+        <span className="button red"></span>
+        <span className="button green" onClick={toggleTerminal}></span>
+      </div>
+      <h3 className="terminal-header-text">
+        muano@portfolio-desktop:~ (minimized)
+      </h3>
     </div>
   );
 };

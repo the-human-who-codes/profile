@@ -1,7 +1,7 @@
 /* Projects Section */
 .projects-section {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.1); /* Dark semi-transparent background */
   color: #fff;
   text-align: center;
 }
