@@ -10,14 +10,17 @@ const Profile = () => {
         <h2 className="profile-name">Muano Masiagwala</h2>
         <p className="profile-role">Aspiring Software Engineer</p>
         <div className="social-links">
-          <a href="mailto:your-email@example.com" className="social-link">
+          <a
+            href="mailto:muanomasiagwala2021@gmail.com"
+            className="social-link"
+          >
             <FaEnvelope size={20} />
           </a>
-          <a href="tel:+1234567890" className="social-link">
+          <a href="tel:+27684298585" className="social-link">
             <FaPhone size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/your-profile"
+            href="https://www.linkedin.com/in/muano-masiagwala-5b554a255/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
