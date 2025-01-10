@@ -1,0 +1,72 @@
+/* Projects Section */
+.projects-section {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  color: #fff;
+  text-align: center;
+}
+
+/* Section Title */
+.projects-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffffcc; /* Slightly faded white */
+}
+
+/* Projects Container */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Project Card */
+.project-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border for glassmorphism effect */
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Name */
+.project-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4caf50; /* Green accent for project names */
+}
+
+/* Languages List */
+.languages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.language-item:last-child {
+  border-bottom: none;
+}
+
+.language-name {
+  font-weight: bold;
+  color: #ffffffcc;
+}
+
+.language-percentage {
+  color: #ffffff80;
+}

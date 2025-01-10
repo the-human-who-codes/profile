@@ -1,0 +1,14 @@
+/* MainLayout.css */
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+
+.navbar {
+  height: 50px; /* Fixed height for navbar */
+  background-color: #333;
+  color: white;
+}
