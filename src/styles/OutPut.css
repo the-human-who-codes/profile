@@ -1,0 +1,10 @@
+.output-section {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  display: flexbox;
+  min-height: 80vh;
+}

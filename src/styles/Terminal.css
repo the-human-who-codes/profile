@@ -1,0 +1,105 @@
+/* Terminal Container */
+.terminal {
+  position: sticky; /* Fix it to the bottom of the page */
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 30vh; /* Adjust the height as needed */
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column; /* Stack header and content vertically */
+  background-color: #300a24; /* Ubuntu-like terminal background */
+  color: white;
+  z-index: 0;
+  box-sizing: border-box; /* Ensure padding and border are included in height and width calculations */
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: #eee;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #444;
+  height: max-content; /* Automatically adjusts to the content height */
+  width: 100%; /* Ensures it spans the full width of the terminal */
+  box-sizing: border-box; /* Includes padding in height and width calculations */
+  position: relative; /* Ensures it's stacked above the content */
+}
+
+/* MacOS Buttons */
+.macos-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.button.red {
+  background-color: #ff5f56;
+}
+
+.button.yellow {
+  background-color: #ffbd2e;
+}
+
+.button.green {
+  background-color: #27c93f;
+}
+
+/* Terminal Header Text */
+.terminal-header-text {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+/* Terminal Content */
+.terminal-content {
+  flex: 1; /* Fills remaining space below the header */
+  overflow-y: auto;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in width calculations */
+}
+
+/* Terminal History */
+.terminal-history {
+  margin: 0;
+  color: #fff;
+}
+
+/* Terminal Input Wrapper */
+.terminal-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Terminal Prompt */
+.terminal-prompt {
+  color: #4caf50; /* Green for prompt text */
+  margin-right: 0.5rem;
+}
+
+/* Terminal Input */
+.terminal-input {
+  background: none;
+  border: none;
+  color: #eee;
+  outline: none; /* Removes default outline */
+  font-family: inherit;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.terminal-input::placeholder {
+  color: #999; /* Placeholder text color */
+}

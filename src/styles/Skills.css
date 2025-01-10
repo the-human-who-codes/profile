@@ -1,0 +1,64 @@
+/* Skills Section */
+.skills-section {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  color: #fff;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffffcc; /* Slightly faded white */
+}
+
+/* Skills Container */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto; /* Centered on the page */
+}
+
+/* Skill Item */
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Skill Name */
+.skill-name {
+  font-size: 1rem;
+  font-weight: bold;
+  flex: 1; /* Pushes the progress bar to the right */
+  text-align: left;
+  color: #4caf50; /* Green accent for skill names */
+}
+
+/* Progress Bar */
+.progress-bar {
+  flex: 4; /* Makes the bar take up most of the row */
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  height: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Progress */
+.progress {
+  background: linear-gradient(90deg, #4caf50, #81c784); /* Green gradient */
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+/* Skill Level */
+.skill-level {
+  font-size: 0.9rem;
+  color: #ffffff80; /* Faded white */
+  width: 40px;
+  text-align: right;
+}
