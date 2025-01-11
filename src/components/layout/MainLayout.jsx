@@ -25,6 +25,7 @@ const MainLayout = ({ onCommandSubmit }) => {
       <Terminal
         changeActiveTab={handleTabClick}
         onCommandSubmit={onCommandSubmit}
+        availableTabs={["about", "projects", "contact"]}
       />
     </>
   );
