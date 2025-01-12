@@ -1,9 +1,6 @@
 name: Deploy to Firebase Hosting on PR
 
-on:
-  pull_request:
-    branches:
-      - main # Trigger only for PRs to the 'main' branch or change it to your target branch
+on: pull_request
 
 permissions:
   checks: write
@@ -22,13 +19,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Set the Node.js version as per your project requirement
+          node-version: "18" # Updated Node.js version
 
       - name: Install dependencies
-        run: npm ci # Using npm ci for consistent installs with package-lock.json
+        run: npm ci # Ensure dependencies are installed with npm ci
 
       - name: Build the project
-        run: npm run build # Make sure your 'build' script is defined in your package.json
+        run: npm run build # Run build script
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -36,5 +33,3 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MUANOMASIAGWALA_D678D }}
           projectId: muanomasiagwala-d678d
-        env:
-          FIREBASE_CLI_LOGIN: ${{ secrets.FIREBASE_CLI_LOGIN }} # If you're using Firebase CLI login, set it here
