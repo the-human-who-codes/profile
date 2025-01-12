@@ -1,90 +1,126 @@
 /* Skills Section */
 .skills-section {
   padding: 3rem 1rem;
-  background-color: rgba(0, 0, 0, 0.1); /* Transparent dark background */
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.1)
+  ); /* Gradient dark background */
   color: #fff;
   text-align: center;
-  border-radius: 15px; /* Optional: Adds rounded corners */
-  backdrop-filter: blur(8px); /* Smoothens the background */
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  backdrop-filter: blur(10px); /* Smoothens the background */
+  overflow: hidden; /* For animated effects that might extend */
 }
 
 .skills-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
   color: #4caf50; /* Green accent */
+  text-shadow: 0 0 10px #4caf50, 0 0 20px rgba(76, 175, 80, 0.5); /* Glowing effect */
+  animation: glow 3s infinite alternate;
+}
+
+/* Glow animation */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #4caf50, 0 0 20px rgba(76, 175, 80, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.7);
+  }
 }
 
 /* Skills Container */
 .skills-container {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping for a responsive layout */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 /* Skill Item */
 .skill {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  /* margin: 0; */
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  transition: transform 0.3s ease;
-  width: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 180px;
+  cursor: pointer;
 }
 
 .skill:hover {
-  transform: scale(1.05); /* Slight scaling on hover */
+  transform: translateY(-10px); /* Floating effect */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px #4caf50; /* Glow shadow */
 }
 
 /* Skill Logo */
 .skill-logo {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
+  width: 70px;
+  height: 70px;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Skill Name */
 .skill-name {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
-  color: #4caf50; /* Green accent for skill names */
+  color: #4caf50;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.7);
 }
 
 /* Circle Container */
 .circle-container {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
 }
 
 /* Progress Circle */
 .progress-circle {
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg); /* Starts animation from the top */
+  transform: rotate(-90deg);
 }
 
 .circle-bg {
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 8;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 10;
+  stroke-linecap: round;
 }
 
 .circle-progress {
-  stroke: #4caf50; /* Green accent for progress */
-  stroke-width: 2;
+  stroke: #4caf50;
+  stroke-width: 2px;
   stroke-linecap: round;
-  transition: stroke-dashoffset 1s ease-out; /* Smooth animation */
+
+  animation: progress-animation 2s ease-out forwards;
 }
 
+/* Smooth progress animation */
 @keyframes progress-animation {
-  to {
-    stroke-dashoffset: 0;
+  from {
+    stroke-dasharray: 0 100;
   }
 }
 
@@ -94,7 +130,24 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Add subtle fade-in for entire section */
+.skills-section {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,4 +1,4 @@
-import { FaEnvelope, FaPhone, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 import "../../styles/Profile.css";
 import macG from "../../assets/images/macG.jpg";
 
@@ -26,6 +26,14 @@ const Profile = () => {
             className="social-link"
           >
             <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://github.com/muano-thee-last"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <FaGithub size={20} />
           </a>
         </div>
       </div>
