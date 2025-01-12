@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true); // Track loading state
-  const token = import.meta.env.VITE_GITHUB_TOKEN;
+  const token = "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"; //its just a read token, no special permissions
 
   useEffect(() => {
     const fetchRepos = async () => {
