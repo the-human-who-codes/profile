@@ -4,64 +4,18 @@ import { useState, useEffect } from "react";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true); // Track loading state
-  const token = "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"; //its just a read token, no special permissions
 
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch(
-          "https://api.github.com/users/muano-thee-last/repos",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "X-GitHub-Api-Version": "2022-11-28",
-            },
-          }
-        );
-        if (!response.ok) throw new Error("Failed to fetch repositories.");
+        const response = await fetch("https://api-vhfzqtwnzq-uc.a.run.app");
+        if (!response.ok) {
+          console.log(response);
+          throw new Error("Failed to fetch repositories.");
+        }
         const data = await response.json();
-        // Map the fetched data to your desired format
-        const mappedProjects = data.map((repo) => ({
-          title: repo.name,
-          description: repo.description || "No description provided.",
-          languages: [], // Placeholder for language data, we'll populate it below
-          url: repo.html_url, // Add the repo URL
-        }));
 
-        // Fetch language data for each repo
-        const projectsWithLanguages = await Promise.all(
-          mappedProjects.map(async (project) => {
-            try {
-              const langResponse = await fetch(
-                `https://api.github.com/repos/muano-thee-last/${project.title}/languages`,
-                {
-                  headers: {
-                    Authorization: `Bearer ${token}`,
-                    "X-GitHub-Api-Version": "2022-11-28",
-                  },
-                }
-              );
-              if (!langResponse.ok)
-                throw new Error("Failed to fetch languages.");
-              const langData = await langResponse.json();
-              const total = Object.values(langData).reduce(
-                (acc, val) => acc + val,
-                0
-              );
-              const languages = Object.entries(langData).map(
-                ([key, value]) => ({
-                  name: key,
-                  percentage: Math.round((value / total) * 100),
-                })
-              );
-              return { ...project, languages };
-            } catch {
-              return { ...project, languages: [] };
-            }
-          })
-        );
-
-        setProjects(projectsWithLanguages);
+        setProjects(data); // Set the fetched data directly
         setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
         console.error(error);
@@ -70,7 +24,7 @@ const Projects = () => {
     };
 
     fetchRepos();
-  }, [token]);
+  }, []);
 
   // Handle card click to redirect to the repo URL
   const handleCardClick = (url) => {
