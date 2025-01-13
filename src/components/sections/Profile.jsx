@@ -8,7 +8,10 @@ const Profile = () => {
       <div className="profile-section">
         <img src={macG} alt="Profile" className="profile-image" />
         <h2 className="profile-name">Muano Masiagwala</h2>
-        <p className="profile-role">Aspiring Software Engineer</p>
+        <p className="profile-role">
+          Aspiring Software Engineer | Frontend Developer | Backend Developer |
+          Full-Stack Developer | Database Administrator | Software Tester
+        </p>
         <div className="social-links">
           <a
             href="mailto:muanomasiagwala2021@gmail.com"
