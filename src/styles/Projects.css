@@ -1,164 +1,121 @@
-/* Projects Section */
 .projects-section {
   padding: 3rem 2rem;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
-  color: #fff;
-  text-align: center;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-  overflow: hidden; /* For any animated elements spilling out */
-  position: relative;
+  overflow: hidden;
   animation: fadeIn 1.5s ease-out;
 }
 
-.projects-section::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, #4caf50 20%, transparent 70%);
-  opacity: 0.6;
-  animation: moveGlare 10s infinite alternate ease-in-out;
-  z-index: 1;
-}
-
-.projects-section::after {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, #4caf50 20%, transparent 70%);
-  opacity: 0.4;
-  animation: moveGlare 12s infinite alternate-reverse ease-in-out;
-  z-index: 1;
-}
-
-@keyframes moveGlare {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(50px, 50px);
-  }
-}
-
-/* Section Title */
 .projects-title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #4caf50;
   text-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
   animation: glow 3s infinite alternate;
+  text-align: center;
 }
 
-/* Projects Container */
 .projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  z-index: 0; /* Above background animations */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Project Card */
 .project-card {
   position: relative;
-  backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  width: 600px;
+  height: 300px;
   overflow: hidden;
-  z-index: 0;
+  border-radius: 15px;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.5)
+  );
 }
 
 .project-card:hover {
-  transform: translateY(-10px) rotate(-1deg);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 15px rgba(76, 175, 80, 0.6);
-  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(76, 175, 80, 0.4);
 }
 
-/* Project Name */
-.project-name {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #4caf50;
-  font-weight: bold;
-  text-shadow: 0 0 5px rgba(76, 175, 80, 0.7);
-  animation: floatText 4s infinite alternate ease-in-out;
-}
-
-@keyframes floatText {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Languages List */
-.languages-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-}
-
-.language-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: color 0.3s ease;
-}
-
-.language-item:last-child {
-  border-bottom: none;
-}
-
-.language-item:hover {
-  color: #4caf50;
-}
-
-/* Language Name */
-.language-name {
-  font-weight: bold;
-  color: #ffffffcc;
-}
-
-/* Language Percentage Bar */
-.language-percentage {
+.project-image-container {
   position: relative;
-  width: 100px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-.language-percentage::before {
-  content: "";
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+  filter: blur(4px);
+}
+
+.project-overlay {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
-  width: var(--percentage, 70%);
-  background: #4caf50;
-  transition: width 0.5s ease-out;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.project-card:hover .language-percentage::before {
-  width: calc(var(--percentage, 70%) + 10%);
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Subtle Fade-In for Elements */
+.project-name {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #4caf50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.project-description {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.project-link-icon {
+  font-size: 2rem;
+  color: #4caf50;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-link-icon:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -170,28 +127,13 @@
   }
 }
 
-.loading-spinner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 200px;
-}
-
-.spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #4caf50;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.7),
+      0 0 20px rgba(76, 175, 80, 0.5);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    text-shadow: 0 0 15px rgba(76, 175, 80, 0.9),
+      0 0 25px rgba(76, 175, 80, 0.7), 0 0 30px rgba(76, 175, 80, 0.5);
   }
 }
