@@ -32,6 +32,7 @@ export const techStack = [
   { name: "Vite", icon: React.createElement(SiVite) },
   { name: "React", icon: React.createElement(FaReact) },
   { name: "Node.js", icon: React.createElement(FaNodeJs) },
+  { name: "Express.js", icon: React.createElement(SiExpress) },
   { name: "TailwindCSS", icon: React.createElement(SiTailwindcss) },
   { name: "Bootstrap", icon: React.createElement(SiBootstrap) },
   { name: "CSS3", icon: React.createElement(FaCss3Alt) },
@@ -48,5 +49,4 @@ export const techStack = [
   { name: "Java", icon: React.createElement(FaJava) },
   { name: "Git", icon: React.createElement(FaGitAlt) },
   { name: "CI/CD", icon: React.createElement(SiGithub) },
-  { name: "Express.js", icon: React.createElement(SiExpress) },
 ];
