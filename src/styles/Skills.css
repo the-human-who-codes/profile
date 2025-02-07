@@ -1,11 +1,11 @@
-/* skills.css */
+/* General Styles */
 .techstack-section {
   padding: 3rem 2rem;
-  background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
   color: #fff;
   text-align: center;
   border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
   animation: fadeIn 1.5s ease-out;
@@ -15,7 +15,7 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #4caf50;
-  text-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
+  text-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
   animation: glow 3s infinite alternate;
 }
 
@@ -23,30 +23,32 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
+/* Tech Item */
 .tech-item {
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 1.2rem;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    background 0.3s;
   cursor: pointer;
 }
 
 .tech-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(76, 175, 80, 0.4);
-  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 18px rgba(76, 175, 80, 0.5);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .tech-icon {
   font-size: 2.5rem;
   margin-bottom: 0.8rem;
   color: #4caf50;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .tech-item:hover .tech-icon {
@@ -55,14 +57,64 @@
 }
 
 .tech-name {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #ffffff;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .tech-item:hover .tech-name {
   color: #4caf50;
+}
+
+/* Technical Skills */
+.technical-skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core-skill-container {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.technical-skill-bubble {
+  display: inline-block;
+  padding: 12px 18px;
+  margin: 6px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.technical-skill-bubble.core-skill {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.technical-skill-bubble.core-skill.expanded {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 18px rgba(76, 175, 80, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.subskills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.technical-skill-bubble.subskill {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.technical-skill-bubble.subskill:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Animations */
@@ -79,16 +131,14 @@
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px rgba(76, 175, 80, 0.7),
-      0 0 20px rgba(76, 175, 80, 0.5);
+    text-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
   }
   to {
-    text-shadow: 0 0 15px rgba(76, 175, 80, 0.9),
-      0 0 25px rgba(76, 175, 80, 0.7), 0 0 30px rgba(76, 175, 80, 0.5);
+    text-shadow: 0 0 18px rgba(76, 175, 80, 1), 0 0 25px rgba(76, 175, 80, 0.7);
   }
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
   .techstack-container {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -100,7 +150,7 @@
   }
 
   .tech-name {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .techstack-title {

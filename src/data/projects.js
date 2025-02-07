@@ -1,5 +1,6 @@
 import livelyCampusImage from "../assets/images/livelyCampus.png";
 import robinHoodImage from "../assets/images/FRM.png";
+import cureCloudImage from "../assets/images/cureCloud.png";
 
 export const projects = [
   {
@@ -17,5 +18,13 @@ export const projects = [
       "A donation management system that connects donors with verified recipients in need, ensuring transparency and accountability.",
     "link-to-git-hub": "https://github.com/muano-thee-last/Robinhood",
     "link-to-live-site": "https://orange-bay-0263a040f.5.azurestaticapps.net/",
+  },
+  {
+    name: "CureCloud",
+    image: cureCloudImage,
+    description:
+      "A centralized health management system designed for hospitals and clinics to digitize patient records, streamline specialist bookings, and enhance healthcare accessibility.",
+    "link-to-git-hub": "https://github.com/muano-thee-last/CureCloud",
+    "link-to-live-site": "https://curecloud1.web.app/",
   },
 ];

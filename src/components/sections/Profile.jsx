@@ -1,17 +1,37 @@
+import { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 import "../../styles/Profile.css";
 import macG from "../../assets/images/macG.jpg";
 
+const roles = [
+  "Full-Stack Software Engineer",
+  "AI Engineer",
+  "Machine Learning Engineer",
+  "Data Analyst",
+  "Data Scientist",
+  "Backend Developer",
+  "Frontend Developer",
+];
+
 const Profile = () => {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 2000); // Change role every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="profile-container">
       <div className="profile-section">
         <img src={macG} alt="Profile" className="profile-image" />
         <h2 className="profile-name">Muano Masiagwala</h2>
-        <p className="profile-role">
-          Software Engineer | Frontend Developer | Backend Developer |
-          Full-Stack Developer | Database Administrator | Software Tester
-        </p>
+        <div className="profile-role-container">
+          <p className="profile-role">{roles[currentRoleIndex]}</p>
+        </div>
         <div className="social-links">
           <a
             href="mailto:muanomasiagwala2021@gmail.com"
