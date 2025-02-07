@@ -24,6 +24,7 @@ import {
   SiPytorch,
   SiNumpy,
   SiScikitlearn,
+  SiPostman,
 } from "react-icons/si";
 
 export const techStack = [
@@ -33,6 +34,7 @@ export const techStack = [
   { name: "React", icon: React.createElement(FaReact) },
   { name: "Node.js", icon: React.createElement(FaNodeJs) },
   { name: "Express.js", icon: React.createElement(SiExpress) },
+  { name: "Post Man", icon: React.createElement(SiPostman) },
   { name: "TailwindCSS", icon: React.createElement(SiTailwindcss) },
   { name: "Bootstrap", icon: React.createElement(SiBootstrap) },
   { name: "CSS3", icon: React.createElement(FaCss3Alt) },
