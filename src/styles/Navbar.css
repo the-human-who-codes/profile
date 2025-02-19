@@ -1,19 +1,18 @@
-/* Navbar Container */
 .navbar {
-  background: linear-gradient(45deg, #000000, #333, #3f3f3f); /* Gradient */
+  background: linear-gradient(45deg, #000000, #333, #3f3f3f);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
-  position: sticky;
+  position: fixed; /* Keeps it fixed at the top */
   top: 0;
+  left: 0;
   width: 100%;
-  box-sizing: border-box; /* Ensure padding/borders are included in width */
+  box-sizing: border-box;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #4caf50; /* Green line at the bottom */
-  z-index: 1;
-  overflow: hidden; /* Prevent overflow */
+  border-bottom: 1px solid #4caf50;
+  z-index: 9999; /* Ensures it's above everything */
 }
 
 /* Navbar Contents */
