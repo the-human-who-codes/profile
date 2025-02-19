@@ -1,7 +1,14 @@
-import "../../styles/Navbar.css"; // Assuming you're using global CSS or CSS modules
-import PropTypes from "prop-types";
+import "../../styles/Navbar.css"; // Import CSS for styling
 
-const Navbar = ({ activeTab, onTabChange }) => {
+const Navbar = () => {
+  // Function to scroll smoothly to a section
+  const handleScroll = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-contents">
@@ -15,8 +22,8 @@ const Navbar = ({ activeTab, onTabChange }) => {
           {["about", "projects", "skills"].map((tab) => (
             <li
               key={tab}
-              onClick={() => onTabChange(tab)}
-              className={`navbar-link ${activeTab === tab ? "active" : ""}`}
+              onClick={() => handleScroll(tab)}
+              className="navbar-link"
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)} {/* Capitalize */}
             </li>
@@ -25,11 +32,6 @@ const Navbar = ({ activeTab, onTabChange }) => {
       </div>
     </div>
   );
-};
-
-Navbar.propTypes = {
-  onTabChange: PropTypes.func.isRequired,
-  activeTab: PropTypes.string.isRequired,
 };
 
 export default Navbar;
